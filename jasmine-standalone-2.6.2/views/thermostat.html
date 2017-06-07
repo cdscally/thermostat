@@ -8,38 +8,58 @@
 	 <section>
 	 	<h1 id = 'temperature'></h1>
 	 	<p>
-	 		
+
 	 		<button id="temperature-up">Increase</button>
 	 		<button id="temperature-down">Decrease</button>
 	 		<button id="temperature-reset">reset</button>
-	 		power saving mode is <span id ="power-saving-status">on</span>
 	 		<button id="powersaving-switch">PSM switch</button>
 	 	</p>
+		<h4 id = 'savingmode' ></h4>
 	 </section>
 	 <script src="../src/jquery-3.2.1.min.js"></script>
 	 <script src="../src/thermostat.js"></script>
 	 <script type="text/javascript">
-	 	$( document ).ready(function() {
- 		var thermostat = new Thermostat();
- 		$('#temperature').text(thermostat.temperature);
- 		$('#temperature-up').on('click', function(){
- 			thermostat.up();
- 			$('#temperature').text(thermostat.temperature);
- 		});
- 		$('#temperature-down').on('click', function(){
- 			thermostat.down();
- 			$('#temperature').text(thermostat.temperature);
+		$( document ).ready(function() {
 
- 		})
-    // $( "a" ).click(function( event ) {
- 
-    //     alert( "As you can see, the link no longer took you to jquery.com" );
- 
-    //     event.preventDefault();
- 
-    });
- 
-// });
+ 			var thermostat = new Thermostat();
+
+ 			$('#temperature').text(thermostat.temperature);
+			$('#savingmode').text('Power saving mode is on')
+
+ 			$('#temperature-up').on('click', function(){
+ 				thermostat.up();
+ 				$('#temperature').text(thermostat.temperature);
+ 			});
+
+ 			$('#temperature-down').on('click', function(){
+ 				thermostat.down();
+ 				$('#temperature').text(thermostat.temperature);
+ 			});
+
+			$('#temperature-reset').on('click', function(){
+ 				thermostat.reset();
+ 				$('#temperature').text(thermostat.temperature);
+ 			});
+
+			$('#powersaving-switch').on('click', function(){
+ 				thermostat.modeSwitch();
+				if (thermostat.powersave === true) {
+					$('#savingmode').text('Power saving mode is on')
+				} else {
+					$('#savingmode').text('Power saving mode is off')
+				}
+ 			});
+
+		});
+
 	 </script>
 </body>
 </html>
+
+
+
+<!-- // $( "a" ).click(function( event ) {
+
+//     alert( "As you can see, the link no longer took you to jquery.com" );
+
+//     event.preventDefault(); -->
