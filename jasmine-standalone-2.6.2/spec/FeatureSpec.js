@@ -20,7 +20,9 @@ describe('Thermostat', function() {
   });
 
   it ('should have a minimum temperature of 10', function() {
-    thermostat.down(11)
+    for (var i = 0; i < 11; i++){
+    	thermostat.down();
+    }
     expect(thermostat.temperature).toEqual(10);
   });
 
@@ -29,13 +31,17 @@ describe('Thermostat', function() {
   });
 
   it ("should have a maximum temperature of 25 when in powersaving mode", function(){
-  	thermostat.up(6)
+  	for( var i = 0; i < 6; i++){
+  		thermostat.up();
+  	}
   	expect(thermostat.temperature).toEqual(25);
   });
 
   it("should have a maximum temperature of 32 when not in powersaving mode", function(){
   	thermostat.modeSwitch();
-  	thermostat.up(30);
+  	for( var i = 0; i < 13; i++){
+  		thermostat.up();
+  	}
   	expect(thermostat.temperature).toEqual(32)
   });
 
@@ -48,9 +54,13 @@ describe('Thermostat', function() {
   it ("should return its current energy usage ", function(){
   	expect(thermostat.energyUsage()).toEqual('medium-usage')
   	thermostat.modeSwitch();
-  	thermostat.up(6);
+  	for( var i = 0; i < 6; i++){
+  		thermostat.up();
+  	}
   	expect(thermostat.energyUsage()).toEqual('high-usage')
-  	thermostat.down(10);
+  	for( var i = 0; i < 10; i++){
+  		thermostat.down();
+  	}
   	expect(thermostat.energyUsage()).toEqual('low-usage')
   });
 });

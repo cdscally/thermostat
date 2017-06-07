@@ -7,15 +7,15 @@ function Thermostat(temperature = 20, powersave = true) {
   this.MEDIUM_ENERGY_USAGE_LIMIT = 25;
   this.LOW_ENERGY_USAGE_LIMIT = 18;
 
-  this.up = function(increment){
-  	this.temperature += increment;
+  this.up = function(){
+  	this.temperature += 1;
   	if (this.temperature > this.maximum){
       this.temperature = this.maximum
     };
   };
 
-  this.down = function(decrement){
-    this.temperature -= decrement;
+  this.down = function(){
+    this.temperature -= 1;
     if (this.temperature < this.MINIMUM){
       this.temperature = this.MINIMUM
     };

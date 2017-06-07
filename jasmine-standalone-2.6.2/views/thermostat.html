@@ -8,19 +8,38 @@
 	 <section>
 	 	<h1 id = 'temperature'></h1>
 	 	<p>
-	 		<form action="/" method="post">
-	 		<input type="text" name="increment">
+	 		
 	 		<button id="temperature-up">Increase</button>
-	 		</form>
-	 		<form action="/" method="post">
-	 		<input type="text" name="decrement">
 	 		<button id="temperature-down">Decrease</button>
-	 		</form>
 	 		<button id="temperature-reset">reset</button>
 	 		power saving mode is <span id ="power-saving-status">on</span>
 	 		<button id="powersaving-switch">PSM switch</button>
 	 	</p>
 	 </section>
+	 <script src="../src/jquery-3.2.1.min.js"></script>
 	 <script src="../src/thermostat.js"></script>
+	 <script type="text/javascript">
+	 	$( document ).ready(function() {
+ 		var thermostat = new Thermostat();
+ 		$('#temperature').text(thermostat.temperature);
+ 		$('#temperature-up').on('click', function(){
+ 			thermostat.up();
+ 			$('#temperature').text(thermostat.temperature);
+ 		});
+ 		$('#temperature-down').on('click', function(){
+ 			thermostat.down();
+ 			$('#temperature').text(thermostat.temperature);
+
+ 		})
+    // $( "a" ).click(function( event ) {
+ 
+    //     alert( "As you can see, the link no longer took you to jquery.com" );
+ 
+    //     event.preventDefault();
+ 
+    });
+ 
+// });
+	 </script>
 </body>
 </html>
