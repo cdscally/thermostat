@@ -2,11 +2,7 @@ function Thermostat(temperature = 20, powersave = true) {
   this.temperature = temperature;
   this.minimum = 10;
   this.powersave = powersave;
-  if (powersave) {
-  	this.maximum = 25;
-  }else{
-  	this.maximum = 32;
-  }
+  this.maximum = 25;
 
   this.up = function(increment){
   	this.temperature += increment;
