@@ -27,5 +27,8 @@ function Thermostat(temperature = 20, powersave = true) {
   		this.maximum = 25;
   	}
   };
-};
 
+  this.reset = function() {
+    this.temperature = 20;
+  };
+};

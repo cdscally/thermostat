@@ -38,4 +38,10 @@ describe('Thermostat', function() {
   	thermostat.up(30);
   	expect(thermostat.temperature).toEqual(32)
   });
+
+  it("should have a feature to reset the temperature to 20", function(){
+    thermostat.up(4);
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20);
+  });
 });
