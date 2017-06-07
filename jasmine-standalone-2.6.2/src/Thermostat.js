@@ -1,8 +1,9 @@
 function Thermostat(temperature = 20, powersave = true) {
   this.temperature = temperature;
-  this.minimum = 10;
+  this.MINIMUM = 10;
   this.powersave = powersave;
   this.maximum = 25;
+  this.DEFAULT_TEMPERATURE = 20;
 
   this.up = function(increment){
   	this.temperature += increment;
@@ -13,8 +14,8 @@ function Thermostat(temperature = 20, powersave = true) {
 
   this.down = function(decrement){
     this.temperature -= decrement;
-    if (this.temperature < this.minimum){
-      this.temperature = this.minimum
+    if (this.temperature < this.MINIMUM){
+      this.temperature = this.MINIMUM
     };
   };
 
@@ -29,6 +30,16 @@ function Thermostat(temperature = 20, powersave = true) {
   };
 
   this.reset = function() {
-    this.temperature = 20;
+    this.temperature = this.DEFAULT_TEMPERATURE;
+  };
+
+  this.energyUsage = function() {
+  	if (this.temperature > 25) {
+  		return 'high-usage'
+  	}else if (this.temperature > 18 ) {
+  		return 'medium-usage'
+  	}else{
+  		return 'low-usage'
+  	}
   };
 };
