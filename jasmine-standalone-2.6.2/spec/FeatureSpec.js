@@ -9,8 +9,13 @@ describe('Thermostat', function() {
     expect(thermostat.temperature).toEqual(20);
   });
 
-  it ("should have increase the temperature with an Up function", function(){
+  it ("should increase the temperature with an Up function", function(){
   	thermostat.up(1)
   	expect(thermostat.temperature).toEqual(21);
+  });
+
+  it ("should decrease the temperature with a Down function", function(){
+  	thermostat.down(1)
+  	expect(thermostat.temperature).toEqual(19);
   });
 });
