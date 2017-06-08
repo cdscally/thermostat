@@ -5,6 +5,7 @@
 	<title>Thermostat</title>
 </head>
 <body>
+
 	 <section>
 	 	<h1 id='temperature'></h1>
 	 	<p>
@@ -18,9 +19,9 @@
 		<h4 id='savingmode' ></h4>
 		<h4 id='energy' ></h4>
 	 </section>
-	 <script src="../src/jquery-3.2.1.min.js"></script>
-	 <script src="../src/thermostat.js"></script>
-	 <script type='text/javascript' src="./interactions.js"></script>
+	 <script src="/jquery-3.2.1.min.js"></script>
+	 <script src="/thermostat.js"></script>
+	 <script type='text/javascript' src="/interactions.js"></script>
 
 	 <div id="weather">
 		 <h2>Current weather in <span id="city"></span></h2>
@@ -38,7 +39,14 @@
 				<option value="tokyo">Tokyo</option>
 			</select>
 		 </form>
+		 <br><button id="status">Status</button>
 	 </div>
 
 </body>
+
+<div id="refresh">
+	<span id="<%= @temp %>" class="temperature_variable"></span>
+	<span id="<%= @powersave %>" class="powersave_variable"></span>
+</div>
+
 </html>

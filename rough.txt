@@ -1,0 +1,62 @@
+// function restore_temp() {
+//   $.get('http://localhost:9292/temperature', function(responseText) {
+//     return responseText;
+//   });
+// };
+//
+// function restore_psm() {
+//   $.get('http://localhost:9292/powersave', function(responseText) {
+//     return responseText;
+//   });
+// };
+
+// function restore_session(){
+//
+//   var inherited_temp;
+//   var inherited_psm;
+//
+//   function restore_temp(){
+//     $.get('http://localhost:9292/temperature', function(responseText) {
+//       return responseText;
+//     });
+//   };
+// 
+//   function restore_psm(){
+//     $.get('http://localhost:9292/powersave', function(responseText) {
+//       return responseText;
+//     });
+//   };
+//
+//
+//   function timed_execution(temp, psm){
+//     restore_temp()
+//     setTimeout(, 1000)
+//     restore_psm()
+//     setTimeout(, 1000)
+//   };
+//
+//   timed_execution()
+// };
+
+var inherited_temp = restore_temp();
+var inherited_psm = restore_psm();
+
+
+function restore_temp(){
+  $.get('http://localhost:9292/temperature', function(responseText) {
+    return responseText;
+  });
+};
+
+function restore_psm(){
+  $.get('http://localhost:9292/powersave', function(responseText) {
+    return responseText;
+  });
+};
+
+var inherited_temp = restore_temp();
+inherited_temp.then(function(temp) {
+  return temp;
+}).then(function(temp) {
+  return greeting);
+});
