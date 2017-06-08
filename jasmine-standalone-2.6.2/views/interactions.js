@@ -1,8 +1,7 @@
-
-
-
-$( document ).ready(function() {
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=51b30c9f5d21df49ba927e540e969059', function(data) {
+function getWeather(userLocation = 'london') {
+  var appID = '51b30c9f5d21df49ba927e540e969059'
+  var location = userLocation
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + '&units=metric&appid=' + appID, function(data) {
     var city = data['name'];
     var weatherHeadline = data['weather'][0]['main'];
     var weatherDescription = data['weather'][0]['description'];
@@ -12,6 +11,10 @@ $( document ).ready(function() {
     $('#description').text(weatherDescription);
     $('#temp').text(temperature);
   });
+};
+
+$( document ).ready(function() {
+  getWeather();
 
   var thermostat = new Thermostat();
 
@@ -46,9 +49,9 @@ $( document ).ready(function() {
     $('#energy').text('Energy usage: ' + thermostat.energyUsage())
   });
 
-  // $.ajax({
-  //   url:'api.openweathermap.org/data/2.5/weather?q=London,uk&appid=51b30c9f5d21df49ba927e540e969059',
-  //   type:'get'
-  // })
+  $('select#city').change(function(){
+    var selection = $(this).val();
+    getWeather(selection)
+  });
 
 });
