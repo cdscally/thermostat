@@ -6,60 +6,28 @@
 </head>
 <body>
 	 <section>
-	 	<h1 id = 'temperature'></h1>
+	 	<h1 id='temperature'></h1>
 	 	<p>
 
 	 		<button id="temperature-up">Increase</button>
 	 		<button id="temperature-down">Decrease</button>
 	 		<button id="temperature-reset">reset</button>
 	 		<button id="powersaving-switch">PSM switch</button>
+			<button id='energy-usage'>Energy Usage</button>
 	 	</p>
-		<h4 id = 'savingmode' ></h4>
+		<h4 id='savingmode' ></h4>
+		<h4 id='energy' ></h4>
 	 </section>
 	 <script src="../src/jquery-3.2.1.min.js"></script>
 	 <script src="../src/thermostat.js"></script>
-	 <script type="text/javascript">
-		$( document ).ready(function() {
+	 <script type='text/javascript' src="./interactions.js"></script>
 
- 			var thermostat = new Thermostat();
+	 <div id="weather">
+		 <h2>Current weather in <span id="city"></span></h2>
+		 <h3 id="headline"></h3>
+		 <p id="description"></p>
+		 <p>Temperature: <span id="temp"></span></p>
+	 </div>
 
- 			$('#temperature').text(thermostat.temperature);
-			$('#savingmode').text('Power saving mode is on')
-
- 			$('#temperature-up').on('click', function(){
- 				thermostat.up();
- 				$('#temperature').text(thermostat.temperature);
- 			});
-
- 			$('#temperature-down').on('click', function(){
- 				thermostat.down();
- 				$('#temperature').text(thermostat.temperature);
- 			});
-
-			$('#temperature-reset').on('click', function(){
- 				thermostat.reset();
- 				$('#temperature').text(thermostat.temperature);
- 			});
-
-			$('#powersaving-switch').on('click', function(){
- 				thermostat.modeSwitch();
-				if (thermostat.powersave === true) {
-					$('#savingmode').text('Power saving mode is on')
-				} else {
-					$('#savingmode').text('Power saving mode is off')
-				}
- 			});
-
-		});
-
-	 </script>
 </body>
 </html>
-
-
-
-<!-- // $( "a" ).click(function( event ) {
-
-//     alert( "As you can see, the link no longer took you to jquery.com" );
-
-//     event.preventDefault(); -->
