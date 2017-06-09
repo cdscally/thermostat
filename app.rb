@@ -24,7 +24,7 @@ class MyAPI < Sinatra::Base
         @powersave = true
       end
     end
-    @powersave
+    @powersave  
   end
 
   before do
